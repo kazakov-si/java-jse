@@ -37,7 +37,7 @@
 
 Команда для запуска приложения:
 ```bash
-java -jar target/task-manager-1.0.0.jar
+java -jar target/task-manager-1.0.9.jar
 ```  
 
 Терминальные команды:
@@ -89,5 +89,5 @@ java -jar target/task-manager-1.0.0.jar
 Пример запуска приложения с теринальной командой:
 
 ```bash
-java -jar target/jse-04-1.0-SNAPSHOT.jar help
+java -jar target/task-manager-1.0.9.jar help
 ```
