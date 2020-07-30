@@ -1,13 +1,12 @@
-package ru.kazakov.tm.dao;
+package ru.kazakov.tm.repository;
 
 
 import ru.kazakov.tm.entity.Project;
-import ru.kazakov.tm.entity.Task;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProjectDAO {
+public class ProjectRepository {
 
     private List<Project> projects = new ArrayList<>();
 
@@ -43,7 +42,6 @@ public class ProjectDAO {
     }
 
     public Project findById(final Long id) {
-        if (id == null) return null;
         for (final Project project : projects) {
             if (project.getId().equals(id)) return project;
         }
@@ -51,12 +49,10 @@ public class ProjectDAO {
     }
 
     public Project findByIndex(int index) {
-        if (index < 0 || index > projects.size() - 1) return null;
         return projects.get(index);
     }
 
     public Project findByName(final String name) {
-        if (name == null || name.isEmpty()) return null;
         for (final Project project : projects) {
             if (project.getName().equals(name)) return project;
         }
