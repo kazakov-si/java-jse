@@ -37,7 +37,7 @@
 
 Команда для запуска приложения:
 ```bash
-java -jar target/task-manager-1.0.9.jar
+java -jar target/task-manager-1.0.10.jar
 ```  
 
 Терминальные команды:
@@ -66,7 +66,7 @@ java -jar target/task-manager-1.0.9.jar
 
 ```project-remove-by-name``` - Удаление проекта по имени;
 
-```project-update-by-index``` - Изменение проекта по индексу;
+```project-update-by-index``` - Изменение проекта по индексу.
 
 ##### Команды по работе с задачами: #####
 
@@ -86,8 +86,15 @@ java -jar target/task-manager-1.0.9.jar
 
 ```task-update-by-index``` - Изменение задачи по индексу;
 
+```task-list-by-project-id``` - Отображение задач у проекта;
+
+```task-add-to-project-by-ids``` - Добавление задачи в проект;
+
+```task-remove-from-project-by-ids``` - Удаление задачи из проекта.
+
+
 Пример запуска приложения с теринальной командой:
 
 ```bash
-java -jar target/task-manager-1.0.9.jar help
+java -jar target/task-manager-1.0.10.jar help
 ```
