@@ -1,8 +1,10 @@
 package ru.kazakov.tm.service;
 
 import ru.kazakov.tm.entity.Task;
+import ru.kazakov.tm.repository.ProjectRepository;
 import ru.kazakov.tm.repository.TaskRepository;
 
+import java.util.Collections;
 import java.util.List;
 
 public class TaskService {
@@ -69,4 +71,13 @@ public class TaskService {
         return taskRepository.removeByName(name);
     }
 
+    public Task findByProjectIdAndId(Long projectId, Long id) {
+        if (projectId == null || id == null) return null;
+        return taskRepository.findByProjectIdAndId(projectId, id);
+    }
+
+    public List<Task> findAllByProjectId(Long projectId) {
+        if (projectId == null) return null;
+        return taskRepository.findAddByProjectId(projectId);
+    }
 }

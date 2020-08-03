@@ -6,6 +6,7 @@ import ru.kazakov.tm.controller.TaskController;
 import ru.kazakov.tm.repository.ProjectRepository;
 import ru.kazakov.tm.repository.TaskRepository;
 import ru.kazakov.tm.service.ProjectService;
+import ru.kazakov.tm.service.ProjectTaskService;
 import ru.kazakov.tm.service.TaskService;
 
 import java.util.Scanner;
@@ -22,13 +23,16 @@ public class App {
 
     private final TaskService taskService = new TaskService(taskRepository);
 
+    private final ProjectTaskService projectTaskService = new ProjectTaskService(projectRepository, taskRepository);
+
     private final ProjectController projectController = new ProjectController(projectService);
 
-    private final TaskController taskController = new TaskController(taskService);
+    private final TaskController taskController = new TaskController(taskService, projectTaskService );
+
 
     private final SystermController systermController = new SystermController();
 
-     {
+    {
         projectRepository.create("DEMO PROJECT 1");
         projectRepository.create("DEMO PROJECT 2");
         taskRepository.create("TEST Task 1");
@@ -100,10 +104,27 @@ public class App {
                 return taskController.removeTaskByIndex();
             case TASK_UPDATE_BY_INDEX:
                 return taskController.updateTaskByIndex();
+            case TASK_ADD_PROJECT_BY_IDS:
+                return taskController.addTaskToProjectByIds();
+            case TASK_REMOVE_FROM_PROJECT_BY_IDS:
+                return taskController.removeTaskToProjectByIds();
+            case TASK_LIST_BY_PROJECT_ID:
+                return taskController.listTaskByProjectId();
 
             default:
                 return systermController.displayError();
         }
     }
 
+    public ProjectService getProjectService() {
+        return projectService;
+    }
+
+    public TaskService getTaskService() {
+        return taskService;
+    }
+
+    public ProjectTaskService getProjectTaskService() {
+        return projectTaskService;
+    }
 }

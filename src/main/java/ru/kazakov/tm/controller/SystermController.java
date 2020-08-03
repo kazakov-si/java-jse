@@ -41,12 +41,15 @@ public class SystermController {
         System.out.println("task-remove-by-index - Delete task by index.");
         System.out.println("task-remove-by-name - Delete task by name");
         System.out.println("task-update-by-index - Update task by index.");
-
+        System.out.println("task-list-by-project-id - Display task list by project id.");
+        System.out.println("task-add-to-project-by-ids - Add task to project by id.");
+        System.out.println("task-remove-from-project-by-ids - Remove task from project by ids.");
+        System.out.println();
         return 0;
     }
 
     public int displayVersion() {
-        System.out.println("1.0.9");
+        System.out.println("1.0.10");
         return 0;
     }
 

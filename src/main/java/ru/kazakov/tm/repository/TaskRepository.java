@@ -47,6 +47,16 @@ public class TaskRepository {
         return null;
     }
 
+    public Task findByProjectIdAndId(final Long projectId, final Long id) {
+        for (final Task task : tasks) {
+            final Long idProject = task.getProjectId();
+            if (idProject == null) continue;
+            if (!idProject.equals(projectId)) continue;
+            if (task.getId().equals(id)) return task;
+        }
+        return null;
+    }
+
     public Task findByIndex(int index) {
         return tasks.get(index);
     }
@@ -77,6 +87,16 @@ public class TaskRepository {
         if (task == null) return null;
         tasks.remove(task);
         return task;
+    }
+
+    public List<Task> findAddByProjectId(final Long projectId) {
+        final List<Task> result = new ArrayList<>();
+        for (final Task task : findAll()) {
+            final Long idProject = task.getProjectId();
+            if (idProject == null) continue;
+            if (idProject.equals(projectId)) result.add(task);
+        }
+        return result;
     }
 
 }
